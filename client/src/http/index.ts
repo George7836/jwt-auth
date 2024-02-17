@@ -32,7 +32,7 @@ api.interceptors.response.use(
         localStorage.setItem("token", response.data.accessToken);
         return api.request(originalRequest);
       } catch (e) {
-        throw new Error("Пользователь не авторизован");
+        throw new Error("User is not logged in");
       }
     }
     throw error;
