@@ -14,7 +14,9 @@ import FormContainer from "./FormContainer";
 
 const RegistrationFormSchema = object({
   email: string().required("email is required").email().max(250).default(""),
-  password: string().required("password is required"),
+  password: string()
+    .required("password is required")
+    .min(6, "min length of a password is 6 characters"),
   confirmPassword: string()
     .oneOf([ref("password"), ""], "password must match")
     .required(),

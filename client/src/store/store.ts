@@ -34,7 +34,7 @@ export default class Store {
       this.setUser(response.data.user);
     } catch (e) {
       if (e instanceof AxiosError) {
-        throw new Error(e.response?.data?.message);
+        throw e;
       } else {
         throw new Error((e as Error)?.message || "Неизвестная ошибка");
       }
@@ -49,7 +49,7 @@ export default class Store {
       this.setUser(response.data.user);
     } catch (e) {
       if (e instanceof AxiosError) {
-        throw new Error(e.response?.data?.message);
+        throw e;
       } else {
         throw new Error((e as Error)?.message || "Неизвестная ошибка");
       }
@@ -64,7 +64,7 @@ export default class Store {
       this.setUser(null);
     } catch (e) {
       if (e instanceof AxiosError) {
-        throw new Error(e.response?.data?.message);
+        throw e;
       } else {
         throw new Error((e as Error)?.message || "Неизвестная ошибка");
       }
